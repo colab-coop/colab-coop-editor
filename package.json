@@ -1,0 +1,26 @@
+{
+  "name": "editor",
+  "description": "Simple markdown editor to edit files",
+  "dependencies": {
+    "jquery": ">= 1.2.0",
+    "browserify": "^3.14.0",
+    "uglify-js": "^2.4.8",
+    "watchify": "1.0.6",
+    "backbone": "1.1.2",
+    "handlebars": "2.0.0",
+    "underscore": "1.7.0",
+    "express": "3.7.0",
+    "nodegit": "0.1.4",
+    "nodemon": "1.2.1",
+    "sass": "0.5.0"
+  },
+  "engine": "node 0.10.24",
+  "scripts": {
+  	"build": "browserify app/main.js | uglifyjs -mc > dist/main.js && npm run build-templates && npm run build-sass",
+    "build-sass": "sass app/styles/main.scss dist/main.css",
+  	"build-templates": "handlebars templates/*.tpl -c Handlebars > dist/templates.js",
+  	"watch": "watchify app/main.js -o dist/main.js -dv & npm run watch-templates & npm run watch-sass",
+    "watch-templates": "nodemon --ext tpl --exec 'npm run build-templates'",
+    "watch-sass": "nodemon --watch styles --ext scss --exec 'npm run build-sass'"
+  }
+}
