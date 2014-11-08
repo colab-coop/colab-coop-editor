@@ -19,16 +19,18 @@ var FileView = Backbone.View.extend({
   },
   fetchFile: function() {
     var self = this;
-    $.get(config.API_URL + '/directory/' + this.url)
+    $.get(config.API_URL + '/getFile/' + this.url)
       .success(function(data) {
-        self.content = data;
+        self.content = data.content;
         self.render();
       });
   },
   save: function() {
     var content = this.$el.find('#content').val();
-    $.post(config.API_URL + '/directory/' + this.url, {
-      content: content
+    $.post(config.API_URL + '/addFile', {
+      path: this.url,
+      content: content,
+      commitMsg: 'Added file'
     });
   },
   back: function() {

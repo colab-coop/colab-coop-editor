@@ -35,27 +35,29 @@ var FileView = Backbone.View.extend({
       var template = Handlebars.templates['row.tpl'];
       self.$el.find('#file-listing').html(
         template({
-          folders: self.folders,
-          files: self.files
+          data: self.folders.toJSON().concat(self.files.toJSON())
         }));
     });
   },
   fetchFiles: function(callback) {
     var self = this;
-    $.get(config.API_URL + '/directory/' + this.url)
+    $.get(config.API_URL + '/getDir/' + this.url + '/')
       .success(function(data) {
-        _.each(data, function(file, index) {
-          //if (type === 'folder') {
-          //	self.folders.add(file);
-          //}else{
+        _.each(data.files, function(file, index) {
           var f = {
-            filename: file,
-            type: 'file',
-            path: self.url
+            filename: file.filename,
+            folder: !file.isFile
           };
 
-          self.files.add(f);
-          //}
+          if (self.url !== '') {
+            f.path = self.url;
+          }
+
+          if (!file.isFile) {
+          	self.folders.add(f);
+          }else{
+            self.files.add(f);
+          }
         });
 
         callback(null, {});

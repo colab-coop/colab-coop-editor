@@ -22,8 +22,7 @@ var Router = Backbone.Router.extend({
   },
   file: function(type, path) {
     this.disposeView();
-    var extension = path ? path.match(/\.[0-9a-z]+$/i) : null;
-    if (extension) {
+    if (type == 'edit') {
       this.view = new EditView({
         url: path
       });

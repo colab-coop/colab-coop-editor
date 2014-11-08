@@ -3,7 +3,7 @@ var Backbone = require('backbone');
 var Folder = require('../models/folder');
 Backbone.$ = jQuery;
 
-var Folders = Backbone.Model.extend({
+var Folders = Backbone.Collection.extend({
   Model: File
 });
 

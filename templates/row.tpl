@@ -1,9 +1,9 @@
 <div>
-	{{#each files.models}}
-		{{#if attributes.path}}
-			<div><a href="#/edit/{{attributes.path}}/{{attributes.filename}}">{{attributes.filename}}</a></div>
+	{{#each data}}
+		{{#if folder}}
+			<div><a href="#/view{{#if path}}/{{path}}{{/if}}/{{filename}}">{{filename}}</a></div>
 		{{else}}
-			<div><a href="#/edit/{{attributes.filename}}">{{attributes.filename}}</a></div>
+			<div><a href="#/edit{{#if path}}/{{path}}{{/if}}/{{filename}}">{{filename}}</a></div>
 		{{/if}}
 	{{/each}}
 </div>
