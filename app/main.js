@@ -7,8 +7,8 @@ var EditView = require('./controllers/edit');
 Backbone.$ = jQuery;
 
 var Router = Backbone.Router.extend({
-	routes: {
-    "index":  "index",
+  routes: {
+    "index": "index",
     ":type/*path(/)": "file"
   },
   disposeView: function() {
@@ -18,21 +18,25 @@ var Router = Backbone.Router.extend({
   },
   index: function() {
     this.disposeView();
-  	this.view = new HomeView();
+    this.view = new HomeView();
   },
   file: function(type, path) {
     this.disposeView();
-  	var extension = path ? path.match(/\.[0-9a-z]+$/i) : null;
-  	if (extension) {
-  		this.view = new EditView({url: path});
-  	}else{
-  		this.view = new FileView({url: path});
-  	}
+    var extension = path ? path.match(/\.[0-9a-z]+$/i) : null;
+    if (extension) {
+      this.view = new EditView({
+        url: path
+      });
+    } else {
+      this.view = new FileView({
+        url: path
+      });
+    }
   }
 
 });
 
 jQuery(document).ready(function() {
-	new Router();
-	Backbone.history.start()
+  new Router();
+  Backbone.history.start()
 });

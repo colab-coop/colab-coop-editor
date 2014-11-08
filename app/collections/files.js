@@ -4,7 +4,7 @@ var File = require('../models/file');
 Backbone.$ = jQuery;
 
 var Files = Backbone.Collection.extend({
-	model: File
+  model: File
 });
 
 module.exports = Files;
