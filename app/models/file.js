@@ -4,7 +4,6 @@ var Handlebars = require('handlebars');
 var templates = require('../../dist/templates');
 Backbone.$ = jQuery;
 
-var File = Backbone.Model.extend({
-});
+var File = Backbone.Model.extend({});
 
 module.exports = File;

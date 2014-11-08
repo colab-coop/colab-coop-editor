@@ -8,24 +8,23 @@ Backbone.$ = $;
 var loader = null;
 
 var _LoaderView = Backbone.View.extend({
-	el: '#loading',
-	initialize: function(options) {
-	},
-	show: function() {
-		this.$el.show();
-	},
-	hide: function() {
-		this.$el.hide();
-	}
+  el: '#loading',
+  initialize: function(options) {},
+  show: function() {
+    this.$el.show();
+  },
+  hide: function() {
+    this.$el.hide();
+  }
 });
 
 var LoaderView = function() {
-	if (!loader) {
-		loader = new _LoaderView();
-		return loader;
-	}else{
-		return loader;
-	}
+  if (!loader) {
+    loader = new _LoaderView();
+    return loader;
+  } else {
+    return loader;
+  }
 }
 
 module.exports = LoaderView;

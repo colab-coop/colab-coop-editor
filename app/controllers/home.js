@@ -9,14 +9,14 @@ Backbone.$ = jQuery;
 var API_URL = 'http://localhost:9000/'
 
 var HomeView = Backbone.View.extend({
-	el: '#main',
-	initialize:function() {
-		this.render();
-	},
-	render: function() {
-		var template = Handlebars.templates['index.tpl'];
-		this.$el.html(template());
-	}
+  el: '#main',
+  initialize: function() {
+    this.render();
+  },
+  render: function() {
+    var template = Handlebars.templates['index.tpl'];
+    this.$el.html(template());
+  }
 });
 
 module.exports = HomeView;
