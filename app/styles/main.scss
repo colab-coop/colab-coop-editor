@@ -1,0 +1,19 @@
+.sidebar {
+	position:fixed;
+	top:0;
+	right:10px;
+	width:60px;
+}
+
+.sidebar .save {
+	background: transparent;
+	width: 25px;
+	height: 25px;
+	position: absolute;
+	top: 0;
+	left: 8px;
+	display: block;
+	text-align: center;
+	-webkit-border-radius: 50%;
+	border-radius: 50%;	
+}

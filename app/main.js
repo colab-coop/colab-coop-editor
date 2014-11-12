@@ -4,12 +4,13 @@ var Handlebars = require('handlebars');
 var HomeView = require('./controllers/home');
 var FileView = require('./controllers/file');
 var EditView = require('./controllers/edit');
+var Utils = require('./utils');
 Backbone.$ = jQuery;
 
 var Router = Backbone.Router.extend({
   routes: {
     "index": "index",
-    ":type/*path(/)": "file"
+    ":type(/)*path(/)": "file"
   },
   disposeView: function() {
     if (this.view) {

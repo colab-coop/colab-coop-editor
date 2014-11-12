@@ -4,8 +4,13 @@ var $ = require('jquery');
 var Backbone = require('backbone');
 var Handlebars = require('handlebars');
 var templates = require('../../dist/templates');
+var codemirror = require('codemirror');
 var config = require('../config');
 Backbone.$ = $;
+
+function looksLikeScheme(code) {
+    return !/^\s*\(\s*function\b/.test(code) && /^\s*[;\(]/.test(code);
+}
 
 var FileView = Backbone.View.extend({
   el: '#content',
@@ -26,11 +31,16 @@ var FileView = Backbone.View.extend({
       });
   },
   save: function() {
-    var content = this.$el.find('#content').val();
-    $.post(config.API_URL + '/addFile', {
-      path: this.url,
-      content: content,
-      commitMsg: 'Added file'
+    var content = this._codemirror.getValue();
+    $.ajax({
+      method: 'POST',
+      url: config.API_URL + '/addFile',
+      contentType: 'application/json',
+      data: JSON.stringify({
+        path: this.url,
+        content: content,
+        commitMsg: 'Added file'
+      })
     });
   },
   back: function() {
@@ -39,8 +49,18 @@ var FileView = Backbone.View.extend({
   render: function() {
     var template = Handlebars.templates['editor.tpl'];
     this.$el.html(template({
-      content: this.content
+      content: this.content,
+      path: this.url
     }));
+
+    this._codemirror = new codemirror
+    .fromTextArea(this.$el.find('#content')[0], {
+      mode: 'scheme',
+      lineNumbers: true
+    });
+
+    this._codemirror.setOption('mode', 
+      looksLikeScheme(this._codemirror.getValue()) ? "scheme" : "javascript");
   }
 });
 

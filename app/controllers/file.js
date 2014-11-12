@@ -11,6 +11,7 @@ var Folders = require('../collections/folders');
 var Files = require('../collections/files');
 var _ = require('underscore');
 Backbone.$ = $;
+var file_view = null;
 
 var FileView = Backbone.View.extend({
   el: '#content',
@@ -65,7 +66,7 @@ var FileView = Backbone.View.extend({
   },
   render: function() {
     var template = Handlebars.templates['index.tpl'];
-    this.$el.html(template());
+    this.$el.html(template({url: this.url}));
   }
 });
 
