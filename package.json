@@ -20,7 +20,7 @@
   "scripts": {
   	"build": "browserify app/main.js | uglifyjs -mc > dist/main.js && npm run build-templates && npm run build-sass",
     "build-sass": "sass app/styles/main.scss dist/main.css",
-  	"build-templates": "handlebars templates/*.tpl -c Handlebars > dist/templates.js",
+  	"build-templates": "handlebars templates/*.tpl -c handlebars > dist/templates.js",
   	"watch": "watchify app/main.js -o dist/main.js -dv & npm run watch-templates & npm run watch-sass",
     "watch-templates": "nodemon --ext tpl --exec 'npm run build-templates'",
     "watch-sass": "nodemon --watch styles/*.scss --ext scss --exec 'npm run build-sass'"
