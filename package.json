@@ -13,7 +13,8 @@
     "nodegit": "0.1.4",
     "nodemon": "1.2.1",
     "sass": "0.5.0",
-    "codemirror": "4.7.0"
+    "codemirror": "4.7.0",
+    "mocha": "2.0.1"
   },
   "engine": "node 0.10.24",
   "scripts": {
@@ -22,6 +23,6 @@
   	"build-templates": "handlebars templates/*.tpl -c Handlebars > dist/templates.js",
   	"watch": "watchify app/main.js -o dist/main.js -dv & npm run watch-templates & npm run watch-sass",
     "watch-templates": "nodemon --ext tpl --exec 'npm run build-templates'",
-    "watch-sass": "nodemon --watch styles --ext scss --exec 'npm run build-sass'"
+    "watch-sass": "nodemon --watch styles/*.scss --ext scss --exec 'npm run build-sass'"
   }
 }

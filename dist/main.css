@@ -1,0 +1,50 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 10px;
+  width: 60px; }
+
+.sidebar .save {
+  top: 114px;
+  position: fixed;
+  right: 24px;
+  width: 55px;
+  height: 40px;
+  text-align: center;
+  padding: 9px;
+  background-color: #f0f0f0;
+  border-radius: 4px; }
+
+.CodeMirror {
+  font-family: Menlo, monospace;
+  font-size: 13px;
+  line-height: 1.4em;
+  -webkit-font-smoothing: subpixel-antialiased;
+  background: none; }
+
+.path {
+  font-size: 16px; }
+
+.CodeMirror {
+  border: 1px solid #eee;
+  height: auto; }
+
+.CodeMirror-scroll {
+  overflow-y: hidden;
+  overflow-x: auto; }
+
+.row {
+  border-bottom: 1px solid #f0f0f0;
+  padding: 12px 15px; }
+
+.row:hover {
+  background-color: #F7F7F7;
+  color: #3d494e; }
+
+.sidebar {
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 5000;
+  width: 60px;
+  height: 100%; }

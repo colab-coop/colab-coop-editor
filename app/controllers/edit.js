@@ -6,6 +6,7 @@ var Handlebars = require('handlebars');
 var templates = require('../../dist/templates');
 var codemirror = require('codemirror');
 var config = require('../config');
+require('codemirror/mode/javascript/javascript.js');
 Backbone.$ = $;
 
 function looksLikeScheme(code) {
@@ -31,6 +32,7 @@ var FileView = Backbone.View.extend({
       });
   },
   save: function() {
+    var self = this;
     var content = this._codemirror.getValue();
     $.ajax({
       method: 'POST',
@@ -40,7 +42,13 @@ var FileView = Backbone.View.extend({
         path: this.url,
         content: content,
         commitMsg: 'Added file'
-      })
+      }),
+      success: function(response) {
+        self.$el.find('.save').find('span').addClass('icon-checkmark-circle');
+        setTimeout(function() {
+          self.$el.find('.save').find('span').removeClass('icon-checkmark-circle');
+        }, 2000);
+      }
     });
   },
   back: function() {
@@ -60,7 +68,7 @@ var FileView = Backbone.View.extend({
     });
 
     this._codemirror.setOption('mode', 
-      looksLikeScheme(this._codemirror.getValue()) ? "scheme" : "javascript");
+      looksLikeScheme(this._codemirror.getValue()) ? 'scheme' : 'javascript');
   }
 });
 

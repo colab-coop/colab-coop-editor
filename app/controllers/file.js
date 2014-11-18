@@ -20,7 +20,7 @@ var FileView = Backbone.View.extend({
     this.files = new Files();
 
     if (options.url) {
-      this.url = options.url
+      this.url = options.url;
     } else {
       this.url = '';
     }
@@ -31,7 +31,9 @@ var FileView = Backbone.View.extend({
   renderFiles: function() {
     var self = this;
     this.fetchFiles(function(err) {
-      if (err) return false;
+      if (err) {
+        return false;
+      }
 
       var template = Handlebars.templates['row.tpl'];
       self.$el.find('#file-listing').html(
@@ -44,7 +46,7 @@ var FileView = Backbone.View.extend({
     var self = this;
     $.get(config.API_URL + '/getDir/' + this.url + '/')
       .success(function(data) {
-        _.each(data.files, function(file, index) {
+        _.each(data.files, function(file) {
           var f = {
             filename: file.filename,
             folder: !file.isFile
