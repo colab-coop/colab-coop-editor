@@ -9,7 +9,7 @@ Backbone.$ = jQuery;
 
 var Router = Backbone.Router.extend({
   routes: {
-    "index": "index",
+    "": "index",
     ":type(/)*path(/)": "file"
   },
   disposeView: function() {
@@ -19,7 +19,7 @@ var Router = Backbone.Router.extend({
   },
   index: function() {
     this.disposeView();
-    this.view = new HomeView();
+    window.location = '#/view';
   },
   file: function(type, path) {
     this.disposeView();
