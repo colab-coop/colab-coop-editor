@@ -1,20 +1,56 @@
-.sidebar {
-	position:fixed;
-	top:0;
-	right:10px;
-	width:60px;
+//------------------------------------------------
+// Variables from colab-coop/src/styles/partials/variables.scss
+
+$red:		  							#ed313d;
+
+$gray-darkest:          #222;
+$gray-dark: 		    		#747474;
+$gray-medium:           #a8a9ad;
+$gray-light:            #eee;
+$gray-lighter:          #f9f9f9;
+
+$border-default-light:  #e0e0e0;
+
+$base-spacing: 10px;
+$base-spacing-sm: $base-spacing / 2;
+$base-spacing-lg: $base-spacing * 2;
+
+//------------------------------------------------
+// Editor-specific styles
+
+body {
+	padding: 0;
 }
 
-.sidebar .save {
-	top: 114px;
-	position: fixed;
-	right: 24px;
-	width: 55px;
-	height: 40px;
-	text-align: center;
-	padding: 9px;
-	background-color: #f0f0f0;
+.nav {
+	position: relative; top: auto; left: auto;
+	margin-bottom: $base-spacing-lg;
+}
+
+.sidebar {
+	position: fixed; top: 170px; right: $base-spacing-lg;
+	z-index: 5000;
+	height: 100%; width: 60px;
+}
+
+.sidebar-button {
+	background: #f0f0f0;
 	border-radius: 4px;
+	cursor: pointer;
+	line-height: 1;
+	margin: 0 0 $base-spacing-lg 0;
+	padding: 15px 9px;
+	text-align: center;
+
+	&:hover {
+		background: $red;
+		color: #fff;
+	}
+
+}
+
+.sidebar #back {
+	font-size: 60%;
 }
 
 .CodeMirror {
@@ -26,7 +62,15 @@
 }
 
 .path {
-	font-size:16px
+	color: $gray-medium;
+	font-size: 80%; /* .text--smaller */
+}
+
+.path a {
+}
+
+.path .current {
+	color: $gray-darkest;
 }
 
 .CodeMirror {
@@ -40,20 +84,48 @@
 }
 
 .row {
-	border-bottom:1px solid #f0f0f0;
-	padding:12px 15px;
+	position: relative;
 }
 
-.row:hover {
-	background-color:#F7F7F7;
-	color: #3d494e;
+.row a {
+	background: #fff;
+	border-bottom: 5px solid #f9f9f9;
+	display: block;
+	padding: 12px 15px;
 }
 
-.sidebar {
-	position: fixed;
-	right: 0;
-	top: 0;
-	z-index: 5000;
-	width: 60px;
-	height: 100%;
+.row a:hover {
+	background-color: #ed313d;
+	color: #fff;
+}
+
+.row .icon-folder {
+	font-size: 80%;
+	margin-right: 5px;
+}
+
+.row #delete {
+	background-color: #fff;
+	border-bottom: 5px solid #f9f9f9;
+	position: absolute; top: 0; right: 0;
+	height: 100%; width: 40px;
+
+	.icon-remove2 {
+		color: $gray-medium;
+		font-size: 80%;
+		line-height: 1;
+		text-align: center;
+		width: 50%;
+		position: absolute; top: 50%; left: 50%;
+		-webkit-transform: translate(-50%,-50%);
+		-ms-transform: translate(-50%,-50%);
+		transform: translate(-50%,-50%);
+	}
+
+	&:hover {
+		.icon-remove2 {
+			color: $red;
+		}
+	}
+
 }
