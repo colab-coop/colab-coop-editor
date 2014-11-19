@@ -64,10 +64,12 @@ var FileView = Backbone.View.extend({
     this._codemirror = new codemirror
     .fromTextArea(this.$el.find('#content')[0], {
       mode: 'scheme',
+      theme: 'twilight',
+      lineWrapping: true,
       lineNumbers: true
     });
 
-    this._codemirror.setOption('mode', 
+    this._codemirror.setOption('mode',
       looksLikeScheme(this._codemirror.getValue()) ? 'scheme' : 'javascript');
   }
 });
