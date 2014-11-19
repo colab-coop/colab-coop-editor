@@ -1,7 +1,9 @@
 <div>
-	<h2>Explore the project:</h2>
+	<p>Explore the project:</p>
 	{{#if url}}
-		Path: /{{file_path url}}
+	<div class="path">
+		<p>Path: {{file_path url}}</p>
+	</div>
 	{{/if}}
 	<div id="file-listing">
 	</div>
