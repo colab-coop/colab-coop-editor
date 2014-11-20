@@ -1,10 +1,14 @@
 <div>
 	<div class="sidebar">
-		<div class="save sidebar-button" id="save">
+		<div id="save" class="save button--editor" data-tooltip="Save">
 			<span class="icon-pencil"></span>
 		</div>
-		<div id="delete" class="sidebar-button"><span class="icon-remove2"></span></div>
-		<div id="back" class="sidebar-button">Cancel</div>
+		<div id="delete" class="button--editor" data-tooltip="Delete">
+			<span class="icon-remove2"></span>
+		</div>
+		<div id="back" class="button--editor" data-tooltip="Cancel">
+			<span class="icon-close"></span>
+		</div>
 	</div>
 	<div class="path">
 		<p>Path: {{file_path path}}</p>

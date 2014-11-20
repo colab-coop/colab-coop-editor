@@ -9,26 +9,78 @@ body {
 
 .sidebar {
   position: fixed;
-  top: 170px;
+  top: 125px;
   right: 20px;
   z-index: 5000;
   height: 100%;
   width: 60px; }
+  .sidebar .button--editor {
+    margin-bottom: 20px; }
 
-.sidebar-button {
+.button--editor {
   background: #f0f0f0;
-  border-radius: 4px;
+  border-radius: 3px;
   cursor: pointer;
   line-height: 1;
-  margin: 0 0 20px 0;
   padding: 15px 9px;
+  position: relative;
   text-align: center; }
-  .sidebar-button:hover {
+  .button--editor:hover {
     background: #ed313d;
     color: #fff; }
 
-.sidebar #back {
+.button--editor-text {
   font-size: 60%; }
+
+[data-tooltip] {
+  position: relative;
+  z-index: 2;
+  cursor: pointer; }
+
+/* Hide the tooltip content by default */
+[data-tooltip]:before,
+[data-tooltip]:after {
+  visibility: hidden;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  pointer-events: none; }
+
+/* Position tooltip above the element */
+[data-tooltip]:before {
+  background: #222;
+  border-radius: 3px;
+  content: attr(data-tooltip);
+  font-size: 60%;
+  padding: 10px;
+  position: absolute;
+  top: 50%;
+  right: 115%;
+  text-align: center;
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  white-space: nowrap; }
+
+/* Triangle hack to make tooltip look like a speech bubble */
+[data-tooltip]:after {
+  border-style: solid;
+  border-width: 7.5px 0 7.5px 7.5px;
+  border-color: transparent transparent transparent #222;
+  content: " ";
+  font-size: 0;
+  line-height: 0;
+  position: absolute;
+  top: 50%;
+  right: 105%;
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  width: 0; }
+
+/* Show tooltip content on hover */
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after {
+  visibility: visible;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1; }
 
 .CodeMirror {
   font-family: Menlo, monospace;
@@ -58,9 +110,10 @@ body {
 
 .row a {
   background: #fff;
-  border-bottom: 5px solid #f9f9f9;
+  border-radius: 3px;
   display: block;
-  padding: 12px 15px; }
+  padding: 12px 15px;
+  margin-bottom: 5px; }
 
 .row a:hover {
   background-color: #ed313d;
@@ -77,7 +130,6 @@ body {
   margin-right: 5px; }
 
 .row #delete {
-  border-bottom: 5px solid #f9f9f9;
   position: absolute;
   top: 0;
   right: 0;
@@ -93,7 +145,6 @@ body {
     top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%); }
 
 /*# sourceMappingURL=main.css.map */
