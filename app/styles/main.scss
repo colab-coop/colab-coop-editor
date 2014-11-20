@@ -61,6 +61,16 @@ body {
 	background: none;
 }
 
+.CodeMirror {
+  border: 1px solid #eee;
+  height: auto;
+}
+
+.CodeMirror-scroll {
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+
 .path {
 	color: $gray-medium;
 	font-size: 80%; /* .text--smaller */
@@ -71,16 +81,6 @@ body {
 
 .path .current {
 	color: $gray-darkest;
-}
-
-.CodeMirror {
-  border: 1px solid #eee;
-  height: auto;
-}
-
-.CodeMirror-scroll {
-  overflow-y: hidden;
-  overflow-x: auto;
 }
 
 .row {
@@ -97,6 +97,17 @@ body {
 .row a:hover {
 	background-color: #ed313d;
 	color: #fff;
+
+	#delete {
+		background:rgba(0,0,0,.1);
+		.icon-remove2 {
+			color: #fff;
+		}
+		&:hover {
+			background:rgba(0,0,0,.4)
+		}
+	}
+
 }
 
 .row .icon-folder {
@@ -105,7 +116,6 @@ body {
 }
 
 .row #delete {
-	background-color: #fff;
 	border-bottom: 5px solid #f9f9f9;
 	position: absolute; top: 0; right: 0;
 	height: 100%; width: 40px;
@@ -121,11 +131,4 @@ body {
 		-ms-transform: translate(-50%,-50%);
 		transform: translate(-50%,-50%);
 	}
-
-	&:hover {
-		.icon-remove2 {
-			color: $red;
-		}
-	}
-
 }
