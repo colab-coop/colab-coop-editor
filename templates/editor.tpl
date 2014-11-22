@@ -14,4 +14,6 @@
 		<p>Path: {{file_path path}}</p>
 	</div>
 	<textarea id="content">{{content}}</textarea>
+        <div id="renderedMD">
+        </div>
 </div>

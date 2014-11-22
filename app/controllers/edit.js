@@ -6,6 +6,7 @@ var Handlebars = require('handlebars');
 var templates = require('../../dist/templates');
 var codemirror = require('codemirror');
 var config = require('../config');
+var markdown = require('markdown').markdown;
 require('codemirror/mode/javascript/javascript.js');
 Backbone.$ = $;
 
@@ -29,6 +30,7 @@ var FileView = Backbone.View.extend({
       .success(function(data) {
         self.content = data.content;
         self.render();
+        self.renderMarkdown();
       });
   },
   save: function() {
@@ -71,6 +73,15 @@ var FileView = Backbone.View.extend({
 
     this._codemirror.setOption('mode',
       looksLikeScheme(this._codemirror.getValue()) ? 'scheme' : 'javascript');
+
+    // set handler for live update of markdown
+    var self = this;
+    this._codemirror.on('change', function (e) {
+      self.renderMarkdown();
+    });
+  },
+  renderMarkdown: function () {
+    $('#renderedMD')[0].innerHTML = markdown.toHTML(this._codemirror.getValue());
   }
 });
 
