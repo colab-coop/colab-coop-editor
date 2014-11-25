@@ -79,6 +79,35 @@ var FileView = Backbone.View.extend({
     this._codemirror.on('change', function (e) {
       self.renderMarkdown();
     });
+
+    var mdHidden = false;
+    $('#toggle-preview').click(function (e) {
+      var markdownWidth, editorWidth, markdownDisplay;
+      if (mdHidden) {
+        markdownWidth = '48%';
+        markdownDisplay = 'block';
+        editorWidth = '48%';
+        mdHidden = false;
+      } else {
+        markdownWidth = '0px';
+        markdownDisplay = 'none';
+        editorWidth = '95%';
+        mdHidden = true;
+      }
+
+      $('#renderedMD')[0]
+        .style.width = markdownWidth;
+      $('#renderedMD')[0]
+        .style.display = markdownDisplay;
+
+      $('.CodeMirror.cm-s-twilight.CodeMirror-wrap')
+        .animate({width: editorWidth}, {durations: 1});
+
+      // $('#renderedMD')
+      //   .animate([{display: markdownDisplay, width: markdownWidth}], {durations: 1});
+      // $('.CodeMirror.cm-s-twilight.CodeMirror-wrap')
+      //   .animate({width: editorWidth}, {durations: 1});
+    });
   },
   renderMarkdown: function () {
     $('#renderedMD')[0].innerHTML = markdown.toHTML(this._codemirror.getValue());
