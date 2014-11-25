@@ -46,7 +46,12 @@ body {
 	position: relative;
 	text-align: center;
 
-	&:hover {
+	&.active {
+		background: #d7d7d7;
+	}
+
+	&:hover,
+	&.active:hover {
 		background: $red;
 		color: #fff;
 	}
@@ -109,21 +114,28 @@ body {
 }
 
 .CodeMirror {
+	-webkit-font-smoothing: subpixel-antialiased;
+	float: left;
 	font-family: Menlo, monospace;
 	font-size: 13px;
+	height: auto;
 	line-height: 1.4em;
-	-webkit-font-smoothing: subpixel-antialiased;
-	background: none;
-}
-
-.CodeMirror {
-  border: 1px solid #eee;
-  height: auto;
+	width: 48%;
 }
 
 .CodeMirror-scroll {
   overflow-y: hidden;
   overflow-x: auto;
+}
+
+#renderedMD {
+	float: right;
+	width: 48%;
+}
+
+#renderedMD hr:first-child,
+#renderedMD hr:nth-child(2) {
+	display: none;
 }
 
 .path {

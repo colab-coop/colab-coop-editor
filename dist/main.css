@@ -25,7 +25,9 @@ body {
   padding: 15px 9px;
   position: relative;
   text-align: center; }
-  .button--editor:hover {
+  .button--editor.active {
+    background: #d7d7d7; }
+  .button--editor:hover, .button--editor.active:hover {
     background: #ed313d;
     color: #fff; }
 
@@ -83,19 +85,25 @@ body {
   opacity: 1; }
 
 .CodeMirror {
+  -webkit-font-smoothing: subpixel-antialiased;
+  float: left;
   font-family: Menlo, monospace;
   font-size: 13px;
+  height: auto;
   line-height: 1.4em;
-  -webkit-font-smoothing: subpixel-antialiased;
-  background: none; }
-
-.CodeMirror {
-  border: 1px solid #eee;
-  height: auto; }
+  width: 48%; }
 
 .CodeMirror-scroll {
   overflow-y: hidden;
   overflow-x: auto; }
+
+#renderedMD {
+  float: right;
+  width: 48%; }
+
+#renderedMD hr:first-child,
+#renderedMD hr:nth-child(2) {
+  display: none; }
 
 .path {
   color: #a8a9ad;
