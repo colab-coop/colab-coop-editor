@@ -4,12 +4,15 @@ var Handlebars = require('handlebars');
 var HomeView = require('./controllers/home');
 var FileView = require('./controllers/file');
 var EditView = require('./controllers/edit');
+var LoginView = require('./controllers/login');
 var Utils = require('./utils');
 Backbone.$ = jQuery;
+var startup = require('./startup');
 
 var Router = Backbone.Router.extend({
   routes: {
     "": "index",
+    "login": "login",
     ":type(/)*path(/)": "file"
   },
   disposeView: function() {
@@ -32,6 +35,10 @@ var Router = Backbone.Router.extend({
         url: path
       });
     }
+  },
+  login: function() {
+    this.disposeView();
+    this.view = new LoginView();
   }
 
 });

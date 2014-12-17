@@ -49,7 +49,7 @@ body {
 
 /* Position tooltip above the element */
 [data-tooltip]:before {
-  background: #222;
+  background: #222222;
   border-radius: 3px;
   content: attr(data-tooltip);
   font-size: 60%;
@@ -66,7 +66,7 @@ body {
 [data-tooltip]:after {
   border-style: solid;
   border-width: 7.5px 0 7.5px 7.5px;
-  border-color: transparent transparent transparent #222;
+  border-color: transparent transparent transparent #222222;
   content: " ";
   font-size: 0;
   line-height: 0;
@@ -111,7 +111,7 @@ body {
   /* .text--smaller */ }
 
 .path .current {
-  color: #222; }
+  color: #222222; }
 
 .row {
   position: relative; }
@@ -154,5 +154,3 @@ body {
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%); }
-
-/*# sourceMappingURL=main.css.map */
