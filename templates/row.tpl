@@ -5,9 +5,9 @@
 				<a href="#/view{{#if path}}/{{path}}{{/if}}/{{filename}}">
 					<span class="icon-folder"></span>
 					{{filename}}
-					<div id="delete">
+					<!-- <div id="delete">
 						<span class="icon-remove2"></span>
-					</div>
+					</div> -->
 				</a>
 			</div>
 		{{else}}
@@ -15,9 +15,9 @@
 				<a href="#/edit{{#if path}}/{{path}}{{/if}}/{{filename}}">
 					<span class="icon-folder"></span>
 					{{filename}}
-					<div id="delete">
+					<!-- <div id="delete">
 						<span class="icon-remove2"></span>
-					</div>
+					</div> -->
 				</a>
 			</div>
 		{{/if}}

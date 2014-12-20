@@ -6,12 +6,12 @@
 		<div id="toggle-preview" class="button--editor active" data-tooltip="Toggle preview">
 			<span class="icon-eye"></span>
 		</div>
-		<div id="toggle-editor" class="button--editor active" data-tooltip="Toggle editor">
+		<!-- <div id="toggle-editor" class="button--editor active" data-tooltip="Toggle editor">
 			<span class="icon-code"></span>
-		</div>
-		<div id="delete" class="button--editor" data-tooltip="Delete">
+		</div> -->
+		<!-- <div id="delete" class="button--editor" data-tooltip="Delete">
 			<span class="icon-remove2"></span>
-		</div>
+		</div> -->
 		<div id="back" class="button--editor" data-tooltip="Cancel">
 			<span class="icon-close"></span>
 		</div>
