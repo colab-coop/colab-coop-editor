@@ -112,7 +112,7 @@ var FileView = Backbone.View.extend({
   renderMarkdown: function () {
     // Renders the HTML if its a HTML or HTM file, or renders the Markdown as HTML if its not.
     var fType = this.url.split(".").pop();
-    if (fType == 'html' || fType == 'htm') {
+    if ((fType == 'html' || fType == 'htm') || fType == 'tpl') {
         var cleanerHtml = this._codemirror.getValue().replace(/^.*@@include.*$/mg, '');
         $('#renderedMD')[0].innerHTML = cleanerHtml;
     }
