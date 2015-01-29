@@ -12,8 +12,13 @@
 			</div>
 		{{else}}
 			<div class="row">
-				<a href="#/edit{{#if path}}/{{path}}{{/if}}/{{filename}}">
-					<span class="icon-folder"></span>
+				{{#if editable}}
+					<a href="#/edit{{#if path}}/{{path}}{{/if}}/{{filename}}">
+						<span class="icon-file"></span>
+				{{else}}
+					<a href="#/view-binary{{#if path}}/{{path}}{{/if}}/{{filename}}">
+						<span class="icon-image"></span>
+				{{/if}}
 					{{filename}}
 					<!-- <div id="delete">
 						<span class="icon-remove2"></span>

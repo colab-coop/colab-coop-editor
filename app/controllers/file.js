@@ -59,6 +59,18 @@ var FileView = Backbone.View.extend({
           if (!file.isFile) {
           	self.folders.add(f);
           }else{
+						// Checking filetype to see if it is editable in the editor or not.
+						var fType = f.filename.split(".").pop();
+						if (fType == "html" ||
+								fType == "htm" ||
+								fType == "md" ||
+								fType == "tpl" ||
+								fType == "xml" ||
+								fType == "txt" ||
+								fType == "php" ||
+								fType == "js") {
+							f.editable = true;
+						}
             self.files.add(f);
           }
         });

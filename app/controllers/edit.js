@@ -113,7 +113,8 @@ var FileView = Backbone.View.extend({
     // Renders the HTML if its a HTML or HTM file, or renders the Markdown as HTML if its not.
     var fType = this.url.split(".").pop();
     if ((fType == 'html' || fType == 'htm') || fType == 'tpl') {
-        var cleanerHtml = this._codemirror.getValue().replace(/^.*@@include.*$/mg, '');
+        // Remove template includes and make relative image src's absolute.
+        var cleanerHtml = this._codemirror.getValue().replace(/^.*@@include.*$/mg, '').replace(/src="(?!http:)/mg, 'src="http://colab.coop');
         $('#renderedMD')[0].innerHTML = cleanerHtml;
     }
     else{
